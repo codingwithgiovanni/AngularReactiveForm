@@ -20,9 +20,10 @@
           <img src="/assets/plus-grey-blue.png" class="add" />
         </div>
         <div class="radio">
-          <input type="radio" formControlName="phoneType" value="mobile"> Mobile
-          <input type="radio" formControlName="phoneType" value="work"> Work
-          <input type="radio" formControlName="phoneType" value="other"> Other
+          <span  *ngFor="let phoneType of phoneTypeValues">
+          <input type="radio" formControlName="phoneType" [value]="phoneType.value"> {{phoneType.title}}         
+        </span>
+          
         </div>
       </div>
     </section>
@@ -35,12 +36,12 @@
             <img src="/assets/plus-grey-blue.png" class="add" />
           </div>
           <input formControlName="city" placeholder="City" />
-          <input  formControlName="state" placeholder="State/Region" />
-          <input  formControlName="postalCode" placeholder="Zip/Postal Code" />
-          <select>
+          <input formControlName="state" placeholder="State/Region" />
+          <input formControlName="postalCode" placeholder="Zip/Postal Code" />
+          <select  formControlName="addressType" >
             <option  value="home">Home</option>
-            <option    value="work">Work</option>
-            <option   value="mobile">Other</option>
+            <option  value="work">Work</option>
+            <option  value="mobile">Other</option>
           </select>
         </div>
       </div>
